@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ghostly</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body data-on="true">
+  <main class="app">
+    <h1>Ghostly</h1>
+
+    <button class="big" id="big" type="button" aria-pressed="true">
+      <svg class="ghost" viewBox="0 0 100 110" aria-hidden="true">
+        <path class="ghost-body" d="M10 52C10 24 28 8 50 8s40 16 40 44v50l-13-10-14 10-13-10-13 10-14-10-13 10z"/>
+        <g class="eyes"><ellipse class="eye" cx="38" cy="50" rx="6" ry="8"/><ellipse class="eye" cx="62" cy="50" rx="6" ry="8"/></g>
+        <path class="smile" d="M40 68q10 10 20 0"/>
+        <g class="zzz"><text x="78" y="22">z</text><text x="86" y="12">z</text></g>
+        <ellipse class="blush" cx="29" cy="64" rx="6" ry="3.5"/><ellipse class="blush" cx="71" cy="64" rx="6" ry="3.5"/>
+      </svg>
+      <span class="state" id="state">GHOST MODE ON</span>
+      <span class="hint" id="hint">tap to turn off</span>
+    </button>
+
+    <section class="opts" aria-label="What to hide">
+      <label class="opt"><span>👀 Story views</span><input type="checkbox" class="switch" id="stories" /></label>
+      <label class="opt"><span>✅ “Seen” in messages</span><input type="checkbox" class="switch" id="dms" /></label>
+      <label class="opt"><span>💬 “Typing…”</span><input type="checkbox" class="switch" id="typing" /></label>
+    </section>
+
+    <p class="count"><b id="count">0</b> things hidden so far</p>
+    <p class="note">Reload Instagram tabs that were open before you installed this. Everything stays in your browser.</p>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
