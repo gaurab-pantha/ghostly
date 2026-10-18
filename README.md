@@ -20,12 +20,13 @@ The popup also has a small counter that shows how many things were hidden, so yo
 
 ## How to install (about one minute)
 
-1. Unzip the folder.
-2. Open `chrome://extensions` in Chrome.
-3. Turn on **Developer mode** (top right).
-4. Click **Load unpacked** and choose the folder that contains `manifest.json`.
-5. **Reload Instagram** if it was already open. This is important, otherwise it won't work in that tab.
-6. Click the ghost icon. Green means you're invisible 😎
+1. Go to the **Releases** page on this GitHub repository and download the latest `Ghostly.zip` file.
+2. Unzip the downloaded folder somewhere on your computer.
+3. Open `chrome://extensions` in Chrome.
+4. Turn on **Developer mode** (top right switch).
+5. Click **Load unpacked** (top left) and choose the unzipped folder that contains `manifest.json`.
+6. **Reload Instagram** if it was already open. This is important, otherwise it won't work in that tab.
+7. Click the ghost icon in your extension bar. Green means you're invisible 😎
 
 ## How to use it
 
@@ -62,15 +63,3 @@ Ghostly isn't perfect:
 
 ## What's inside
 
-```
-manifest.json   Tells Chrome what the extension is
-ghost.js        The Ghost mode itself, runs inside the Instagram page
-bridge.js       Passes your switches to ghost.js and shows the small tag and message
-popup/          The window with the big button
-assets/         Icons
-```
-
-## Credits
-
-Built by Gaurab Pantha 💜
-Instagram: [@myselfgaurav99](https://instagram.com/myselfgaurav99) · GitHub: [gaurab-pantha](https://github.com/gaurab-pantha)
