@@ -1,7 +1,7 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 4,
   "name": "Ghostly",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "Ghost mode for Instagram. Watch stories and read messages without leaving a trace. Nothing leaves your browser.",
   "permissions": ["storage"],
   "host_permissions": ["https://www.instagram.com/*"],
