@@ -1,24 +1,29 @@
-const $ = (s) => document.querySelector(s);
-const DEFAULTS = { on: true, stories: true, dms: true, typing: true };
-let ghost = { ...DEFAULTS };
+document.addEventListener('DOMContentLoaded', () => {
+    const checkButton = document.getElementById('check-unfollowers');
+    const statusDiv = document.getElementById('status');
 
-function paint() {
-  document.body.dataset.on = String(ghost.on);
-  $("#big").setAttribute("aria-pressed", String(ghost.on));
-  $("#state").textContent = ghost.on ? "GHOST MODE ON" : "GHOST MODE OFF";
-  $("#hint").textContent = ghost.on ? "tap to turn off" : "tap to turn on";
-  ["stories", "dms", "typing"].forEach((k) => { $("#" + k).checked = !!ghost[k]; });
-}
-const save = () => chrome.storage.local.set({ ghost });
-
-$("#big").addEventListener("click", () => { ghost.on = !ghost.on; paint(); save(); });
-["stories", "dms", "typing"].forEach((k) => $("#" + k).addEventListener("change", (e) => { ghost[k] = e.target.checked; save(); }));
-
-chrome.storage.onChanged.addListener((c) => { if (c.count) $("#count").textContent = c.count.newValue || 0; });
-
-(async () => {
-  const d = await chrome.storage.local.get(["ghost", "count"]);
-  ghost = { ...DEFAULTS, ...(d.ghost || {}) };
-  $("#count").textContent = d.count || 0;
-  paint();
-})();
+    if (checkButton) {
+        checkButton.addEventListener('click', async () => {
+            statusDiv.textContent = "Scanning profiles safely...";
+            
+            try {
+                // Query the active tab safely using async/await
+                let [tab] = await browser.tabs.query({ active: true, currentWindow: true });
+                
+                if (tab) {
+                    // Send message safely to content scripts
+                    browser.tabs.sendMessage(tab.id, { action: "start_scan" }, (response) => {
+                        if (browser.runtime.lastError) {
+                            statusDiv.textContent = "Please refresh the target page and try again.";
+                        } else if (response && response.status) {
+                            statusDiv.textContent = response.status;
+                        }
+                    });
+                }
+            } catch (error) {
+                statusDiv.textContent = "Error running scan engine.";
+                console.error(`Error: ${error}`);
+            }
+        });
+    }
+});

@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Unfollowly Ghostly",
+  "version": "1.0.0",
+  "description": "Analyze your social media profiles to see who unfollowed you secretly.",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["ghost.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["bridge.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "unfollowly-ghostly@yourdomain.com",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

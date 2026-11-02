@@ -1,52 +1,76 @@
-# ig ghost mode 
+# Ghostly 👻
 
-u ever wanted to look at someone's ig story or read their dm but didn't want them to know u saw it?? fr this extension is a literal lifesaver. it blocks instagram from sending the "seen" status or putting your name on the story viewer list. u can basically stalk completely invisibly lol they will never know u clicked.
+Watch Instagram stories without anyone knowing. Read DMs without the "Seen" label. That's the whole extension.
 
-## what it does 
-*   **watch stories invisibly:** watch any story and u won't show up in their views.
-*   **read dms without "seen":** read messages and take your time to reply without the pressure.
-*   **hide post views:** look at posts and videos completely incognito.
+Made by **Gaurab Pantha** for Hack Club, from Nepal 🇳🇵
 
-## quick setup guide 
+---
 
-if u want to work on the code or run it yourself locally here is how to get it running:
+## What it does
 
-### 1. clone the repo
-first u gotta copy the code to your computer:
-```bash
-git clone https://github.com
-cd YOUR-REPO-NAME
+Turn **Ghost mode** on and Instagram stops telling people what you're up to:
+
+- 👀 **Story views:** You watch a story, and your name doesn't appear in the viewers list.
+- ✅ **"Seen" in DMs:** You read a message, and it doesn't say "Seen".
+- 💬 **"Typing…":** You start typing, and nothing shows on the other person's screen.
+
+One big button turns everything on or off. Three small switches let you choose which of these to hide. There's no scanning, no account, and no settings page.
+
+The popup also has a small counter that shows how many things were hidden, so you can see it working.
+
+## How to install (about one minute)
+
+1. Unzip the folder.
+2. Open `chrome://extensions` in Chrome.
+3. Turn on **Developer mode** (top right).
+4. Click **Load unpacked** and choose the folder that contains `manifest.json`.
+5. **Reload Instagram** if it was already open. This is important, otherwise it won't work in that tab.
+6. Click the ghost icon. Green means you're invisible 😎
+
+## How to use it
+
+- Open the ghost icon. A green button means ON, and a grey button means OFF.
+- Watch a story. A small yellow message ("Hid your story view") appears in the corner. That means it's working.
+- To be seen again, switch it off.
+
+## Is it safe?
+
+Yes. Ghostly does **not**:
+
+- Ask for your password.
+- Send your data anywhere. There is no server.
+- Read your messages or collect anything.
+
+It only runs on instagram.com, and it only stops a few specific "I saw this" messages before they leave your browser. Your settings and the counter are saved in your own browser.
+
+## The honest part (please read)
+
+Ghostly isn't perfect:
+
+- **Stories** are the most reliable part.
+- **"Seen" and "typing" in DMs** are best effort. Instagram sends some chat activity through a live connection that Ghostly can't safely block, so something may still get through. Test it with a friend before you trust it with a secret 😅
+- **Instagram changes things often.** If Instagram renames its internal requests, Ghost mode can stop working until it's updated.
+- Ghostly isn't made by or connected to Instagram, and it may go against Instagram's rules. Use it on your own account, at your own risk.
+- If you view a story while Ghost mode is off, you will be seen.
+
+## If it's not working
+
+1. Is the big button green?
+2. Did you **reload the Instagram tab** after installing? This is the most common problem.
+3. Open the popup and check that the counter goes up when you watch a story.
+4. Still nothing? Tell me what you did, and I'll fix it.
+
+## What's inside
+
+```
+manifest.json   Tells Chrome what the extension is
+ghost.js        The Ghost mode itself, runs inside the Instagram page
+bridge.js       Passes your switches to ghost.js and shows the small tag and message
+popup/          The window with the big button
+assets/         Icons
 ```
 
-### 2. install dependencies
-if u used node or npm for the project just run this in your terminal:
-```bash
-npm install
-```
+## Credits
 
-### 3. run the build script (if u have one)
-if u used webpack, vite, or whatever to bundle the extension code:
-```bash
-npm run build
-```
-*(skip this step if u just wrote raw vanilla javascript files lol)*
-
-### 4. load it into chrome
-* open chrome and go to `chrome://extensions/`
-* turn on **Developer mode** (top right switch)
-* click **Load unpacked** (top left button)
-* choose the main folder where your `manifest.json` file is located
-
-## how to use / install it 🛠️
-since it's not on the web store yet u gotta install it manually, it takes like 2 seconds:
-1. go to the **Releases** tab on the right side of this page.
-2. download the latest zip file and unzip it somewhere on your pc.
-3. open chrome and type `chrome://extensions/` in the URL bar.
-4. turn on **Developer mode** (the toggle button in the top right corner).
-5. click **Load unpacked** in the top left and select the folder u just unzipped.
-6. open instagram on your laptop, pin the extension, and u are good to go.
-
-## demo 🎥
-if u want to see how it works before installing, there is a quick video demo inside the **Releases** section too. just download the demo file and check it out.
-
-privacy is everything fr fr. if u like it or it saved u from a bad situation leave a star or whatever. peace out ✌️
+Built by Gaurab Pantha 💜
+Instagram: [@myselfgaurav99](https://instagram.com/myselfgaurav99) · GitHub: [gaurab-pantha](https://github.com/gaurab-pantha)
