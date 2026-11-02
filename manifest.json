@@ -44,7 +44,7 @@
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "unfollowly-ghostly@yourdomain.com",
+      "id": "ghostly@gaurabdev.com",
       "data_collection_permissions": {
         "required": [
           "none"
